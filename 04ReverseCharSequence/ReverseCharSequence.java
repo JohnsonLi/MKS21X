@@ -11,15 +11,15 @@ class ReverseCharSequence implements CharSequence{
     }
 
     public char charAt(int index){
-        return 'a';
+        return str.charAt(index);
     }    
 
     public int length(){
-        return 1;
+        return str.length();
     }
 
     public CharSequence subSequence(int start, int end){
-        return "a";
+        return str.subString(start, end);
     }
     
     /*public String toString(String str){
