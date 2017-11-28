@@ -20,7 +20,7 @@ class Book{
     public void setTitle(String title){this.title = title;}
     public void setISBN(String ISBN){this.ISBN = ISBN;}
 
-    public String toString(String author, String title, String ISBN){
+    public String toString(){
         return title + " by " + author + "\nISBN: " + ISBN + "\n";  
     }
 
