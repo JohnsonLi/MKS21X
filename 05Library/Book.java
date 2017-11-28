@@ -23,9 +23,4 @@ class Book{
     public String toString(){
         return title + " by " + author + "\nISBN: " + ISBN + "\n";  
     }
-
-    public static void main(String[] args){
-        Book book =  new Book("hi", "me", "123");
-        System.out.println(book);
-    }
 }
