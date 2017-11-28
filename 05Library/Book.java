@@ -21,6 +21,7 @@ class Book{
     public void setISBN(String ISBN){this.ISBN = ISBN;}
 
     public String toString(){
-        return title + " by " + author + "\nISBN: " + ISBN + "\n";  
+        //return title + " by " + author + "\nISBN: " + ISBN + "\n";  
+        return title + ", " + author + ", " + ISBN + "\n"; 
     }
 }
