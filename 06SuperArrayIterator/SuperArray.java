@@ -1,4 +1,4 @@
-public class SuperArray{
+public class SuperArray implements Iterable<String>{
     private String[] data;
     private int size;
 
@@ -8,6 +8,10 @@ public class SuperArray{
 
     public SuperArray(int size){
         data = new String[size];
+    }
+
+    public Iterator<String> iterator(){
+        return new SuperArrayIterator(this);
     }
 
     public void clear(){
