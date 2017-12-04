@@ -1,3 +1,4 @@
+import java.util.Iterator;
 public class SuperArray implements Iterable<String>{
     private String[] data;
     private int size;
