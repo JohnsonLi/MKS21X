@@ -26,6 +26,14 @@ public class Barcode /*implements Comparable<String>*/{
     }
 
     public static String toCode(String zip){
+        if (zip.length() != 5){
+            throw new IllegalArgumentException();
+        }
+        try{
+            Integer.parseInt(zip);
+        }catch(NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
         String code = "|";
         for (int i = 0; i < zip.length(); i++){
             try{
@@ -37,13 +45,21 @@ public class Barcode /*implements Comparable<String>*/{
     }
 
     public static String toZip(String barcode){
+        if (barcode.charAt(0) != '|' || barcode.charAt(barcode.length()-1) != '|' || barcode.length() != 32) {
+            throw new IllegalArgumentException();
+        }
+        for (int i = 0; i < barcode.length(); i++){
+            if (barcode.charAt(i) != '|' && barcode.charAt(i) != ':'){
+                throw new IllegalArgumentException();
+            }
+        }
         String code = barcode.substring(1,barcode.length() - 1);
         String zip = "";
         String currentNum = "";
-        for (int i = 0; i < barcode.length() - 5; i++){
+        for (int i = 0; i < barcode.length(); i++){
             if (currentNum.length() == 5){
                 for (int ii = 0; ii < codeConversionCode.length; ii++){
-                    if(codeConversionCode[ii].equals(currentNum)){
+                    if (codeConversionCode[ii].equals(currentNum)){
                         zip += Integer.toString(ii);
                     }
                 }
@@ -54,7 +70,15 @@ public class Barcode /*implements Comparable<String>*/{
             }catch(StringIndexOutOfBoundsException e){
             }
         }
-        return zip;
+        if (zip.length() != 6){
+            throw new IllegalArgumentException();
+        }
+        String checkSum = getChecksum(zip.substring(0, zip.length() - 1));
+        if (zip.substring(zip.length() - 1, zip.length()).equals(checkSum)){
+            return zip.substring(0, zip.length() - 1);
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     /*public String toString(){
