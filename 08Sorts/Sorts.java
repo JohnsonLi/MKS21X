@@ -1,10 +1,8 @@
+import java.util.Arrays;
 public class Sorts{
 
-    private static int[] intAry = {1,5,7,2,4,6,82,466,432235,233,4,57,8,2};
-
-
     public static String name(){
-        return "01.Li.Johnson";
+        return "09.Li.Johnson";
     }
 
     public static void SelectionSort(int[] data){
@@ -25,18 +23,10 @@ public class Sorts{
 
     }*/
 
-    public String toString(){
-        String str = "[";
-        for (int i = 0; i < intAry.length; i ++){
-            str += intAry[i] + ", ";
-        }
-        return str + "]";
-    }
-
     public static void main(String[] args) {
-        Sorts test = new Sorts();
-        System.out.println(test);
-        test.SelectionSort(test.intAry);
-        System.out.println(test);
+        int[] intAry = {1,5,7,2,4,6,82,466,432235,233,4,57,8,2};
+        System.out.println(Arrays.toString(intAry));
+        SelectionSort(intAry);
+        System.out.println(Arrays.toString(intAry));
     }
 }
