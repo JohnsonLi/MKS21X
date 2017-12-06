@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Barcode /*implements Comparable<String>*/{
+public class Barcode implements Comparable<String>{
     private String zip;
     private static String[] codeConversionCode = {"||:::", ":::||", "::|:|", "::||:", ":|::|", ":|:|:", ":||::", "|:::|", "|::|:", "|:|::"};
 
@@ -81,17 +81,21 @@ public class Barcode /*implements Comparable<String>*/{
         }
     }
 
-    /*public String toString(){
-        return zip;
-    }*/
+    public String getZip(){return zip;}
+    public String getCode(){return toCode(zip);}
+
+    public String toString(){
+        return getCode() + " (" + getZip() + ")";
+    }
 
     public static void main(String[] args) {
         Barcode code = new Barcode("11214");
-        System.out.println(toCode("11214"));
+        System.out.print(code);
+        /*System.out.println(toCode("11214"));
         System.out.println(toZip("|:::||:::||::|:|:::||:|::||:|::|"));
         System.out.println(getChecksum("11214")); //9
         System.out.println(toCode("72801"));
         System.out.println(toZip("||:::|::|:||::|:||::::::|||::|:|"));
-        System.out.println(getChecksum("72801")); //8
+        System.out.println(getChecksum("72801")); //8*/
     }
 }
