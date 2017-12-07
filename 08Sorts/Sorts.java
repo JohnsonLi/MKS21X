@@ -5,7 +5,33 @@ public class Sorts{
         return "09.Li.Johnson";
     }
 
-    public static void SelectionSort(int[] data){
+    public static boolean isSorted(int[]ary){
+        for(int i = 0; i < ary.length - 1 ; i++){
+            if(ary[i] > ary[i+1]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static void swap(int[]ary,int a, int b){
+        int c = ary[a];
+        ary[a] = ary[b];
+        ary[b] = c;
+    }
+
+    public static void bogoSort(int[] ary){
+        while(!isSorted(ary)){
+            for(int i = 0 ; i < ary.length; i++){
+                int temp = ary[i];
+                int newSpot = (int)(Math.random()*ary.length);
+                ary[i] = ary[newSpot];
+                ary[newSpot] = temp;
+            }
+        }
+    }
+
+    public static void selectionSort(int[] data){
         for (int i = 0; i < data.length; i++){
             int min = i;
             for (int ii = i + 1; ii < data.length; ii++){
@@ -19,7 +45,7 @@ public class Sorts{
         }
     }
 
-    public static void InsertionSort(int[] data){
+    public static void insertionSort(int[] data){
         for (int i = 1; i < data.length; i++){
             for (int ii = i; ii > 0; ii--){
                 if (data[ii] < data[ii - 1]){
@@ -37,7 +63,7 @@ public class Sorts{
             intAry[i] = (int)(Math.random() * 100);
         }
         System.out.println(Arrays.toString(intAry));
-        InsertionSort(intAry);
+        insertionSort(intAry);
         System.out.println(Arrays.toString(intAry));
     }
 }
