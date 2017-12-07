@@ -1,8 +1,8 @@
-pencil
-pen
-eraser
-whiteout
-marker
-sharpener
-calculator
-stapler
+PENCIL
+PEN
+ERASER
+WHITEOUT
+MARKER
+SHARPENER
+CALCULATOR
+STAPLER
