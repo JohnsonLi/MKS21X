@@ -9,7 +9,7 @@ public class Sorts{
         for (int i = 0; i < data.length; i++){
             int min = i;
             for (int ii = i + 1; ii < data.length; ii++){
-                if (data[ii] < data[i]){
+                if (data[ii] < data[min]){
                     min = ii;
                 }
             }
@@ -19,14 +19,25 @@ public class Sorts{
         }
     }
 
-    /*public static void InsertionSort(int [] data){
-
-    }*/
+    public static void InsertionSort(int[] data){
+        for (int i = 1; i < data.length; i++){
+            for (int ii = i; ii > 0; ii--){
+                if (data[ii] < data[ii - 1]){
+                    int temp = data[ii - 1];
+                    data[ii - 1] = data[ii];
+                    data[ii] = temp;
+                }
+            }
+        }
+    }
 
     public static void main(String[] args) {
-        int[] intAry = {1,5,7,2,4,6,82,466,432235,233,4,57,8,2};
+        int[] intAry = new int[15];
+        for(int i = 0 ; i < intAry.length; i++){
+            intAry[i] = (int)(Math.random() * 100);
+        }
         System.out.println(Arrays.toString(intAry));
-        SelectionSort(intAry);
+        InsertionSort(intAry);
         System.out.println(Arrays.toString(intAry));
     }
 }
