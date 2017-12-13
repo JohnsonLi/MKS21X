@@ -39,7 +39,9 @@ public class Sorts{
                     min = ii;
                 }
             }
-            swap(data, min,i);
+            int temp = data[min];
+            data[min] = data[i];
+            data[i] = temp;
         }
     }
 
@@ -47,18 +49,9 @@ public class Sorts{
         for (int i = 1; i < data.length; i++){
             for (int ii = i; ii > 0; ii--){
                 if (data[ii] < data[ii - 1]){
-                    swap(data, ii, ii - 1);
-                }
-            }
-        }
-    }
-
-    public static void bubbleSort(int[] data){
-        int aryLen = data.length;
-        for (int i = 0; i < aryLen; i++){
-            for (int ii = 0; ii < aryLen - i - 1; ii++){
-                if (data[ii] > data[ii + 1]){
-                    swap(data, ii, ii + 1);
+                    int temp = data[ii - 1];
+                    data[ii - 1] = data[ii];
+                    data[ii] = temp ;
                 }
             }
         }
@@ -70,7 +63,7 @@ public class Sorts{
             intAry[i] = (int)(Math.random() * 100);
         }
         System.out.println(Arrays.toString(intAry));
-        bubbleSort(intAry);
+        insertionSort(intAry);
         System.out.println(Arrays.toString(intAry));
     }
 }
