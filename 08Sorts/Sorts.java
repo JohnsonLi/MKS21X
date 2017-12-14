@@ -57,13 +57,24 @@ public class Sorts{
         }
     }
 
-    public static void main(String[] args) {
-        int[] intAry = new int[15];
-        for(int i = 0 ; i < intAry.length; i++){
-            intAry[i] = (int)(Math.random() * 100);
-        }
-        System.out.println(Arrays.toString(intAry));
-        insertionSort(intAry);
-        System.out.println(Arrays.toString(intAry));
-    }
+    public static void bubbleSort(int[] data){
+       int aryLen = data.length;
+       for (int i = 0; i < aryLen; i++){
+           for (int ii = 0; ii < aryLen - i - 1; ii++){
+               if (data[ii] > data[ii + 1]){
+                   swap(data, ii, ii + 1);
+               }
+           }
+       }
+   }
+
+   public static void main(String[] args) {
+       int[] intAry = new int[15];
+       for(int i = 0 ; i < intAry.length; i++){
+           intAry[i] = (int)(Math.random() * 100);
+       }
+       System.out.println(Arrays.toString(intAry));
+       bubbleSort(intAry);
+       System.out.println(Arrays.toString(intAry));
+   }
 }
