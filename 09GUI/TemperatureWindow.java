@@ -2,13 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class TemperatureWindow extends JFrame /*implements ActionListener*/{
+public class TemperatureWindow extends JFrame implements ActionListener{
     private Container pane;    
 
-    private JButton b;
     private JTextField t;
-    private JCheckBox F2C;
-    private JCheckBox C2F;    
+    private JButton F2C;
+    private JButton C2F;    
 
     public TemperatureWindow(){
         this.setTitle("Temperature Converter");
@@ -19,12 +18,13 @@ public class TemperatureWindow extends JFrame /*implements ActionListener*/{
         pane = this.getContentPane();
         pane.setLayout(new FlowLayout());  
  
-        b = new JButton("CONVERT");
         t = new JTextField(10);
-        F2C = new JCheckBox("F to C");
-        C2F = new JCheckBox("C to F");
+        t.addActionListener(this);
+        F2C = new JButton("F to C");
+        F2C.addActionListener(this);
+        C2F = new JButton("C to F");
+        C2F.addActionListener(this);
             
-        pane.add(b);
         pane.add(t);
         pane.add(F2C);
         pane.add(C2F);
@@ -39,7 +39,16 @@ public class TemperatureWindow extends JFrame /*implements ActionListener*/{
     	return celcius * 9 / 5 + 32;
     }
 
-    public void 
+    public void actionPerformed(ActionEvent e){
+        String event = e.getActionCommand();
+        if (event.equals("F to C")){
+            t.setText("" + FtoC(Double.parseDouble(t.getText())));
+        }
+        if (event.equals("C to F")){
+            t.setText("" + CtoF(Double.parseDouble(t.getText())));
+        }
+        
+    }
 
     public static void main(String[] args){
         TemperatureWindow hi = new TemperatureWindow();
