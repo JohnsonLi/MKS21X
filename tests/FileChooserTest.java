@@ -1,6 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.awt.Dimension;
 
 public class FileChooserTest extends JFrame implements ActionListener{
 
@@ -8,14 +13,13 @@ public class FileChooserTest extends JFrame implements ActionListener{
     private JMenuBar jMenuBar;
     private JMenu jMenu;
     private JMenuItem openFile, saveFile;
-
+    private JPanel jPanel;
 
 
     public FileChooserTest(){
-        this.setTitle("FileChooserTest");
-        this.setSize(500,300);
-        this.setLocation(100,100);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle("FileChooserTest");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         container = this.getContentPane();
         jMenuBar = new JMenuBar();
@@ -33,14 +37,20 @@ public class FileChooserTest extends JFrame implements ActionListener{
         });
         saveFile.addActionListener(this);
 
+
+        jPanel = new JPanel();
+        jPanel.setPreferredSize(new Dimension(1200,720));
+        jPanel.setBackground(Color.BLACK);
+
         container.setLayout(new FlowLayout());
 
         container.add(jMenuBar);
+        container.add(jPanel);
         jMenuBar.add(jMenu);
         jMenu.add(openFile);
         jMenu.add(saveFile);
 
-
+        pack();
     }
 
     public void actionPerformed(ActionEvent e){
