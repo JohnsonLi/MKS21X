@@ -57,6 +57,12 @@ public class FileChooserTest extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
         FileChooserTest hi = new FileChooserTest();
         hi.setVisible(true);
     }
