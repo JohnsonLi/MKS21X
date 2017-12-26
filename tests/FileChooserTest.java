@@ -58,6 +58,10 @@ public class FileChooserTest extends JFrame implements ActionListener{
 
     public static void main(String[] args) {
         FileChooserTest hi = new FileChooserTest();
+        try {
+     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+
+   } catch (Exception e) { System.err.println("Error: " + e.getMessage()); }
         hi.setVisible(true);
     }
 
