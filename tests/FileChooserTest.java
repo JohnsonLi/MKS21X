@@ -18,8 +18,6 @@ public class FileChooserTest extends JFrame implements ActionListener{
 
     public FileChooserTest(){
         setTitle("FileChooserTest");
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         container = this.getContentPane();
@@ -69,6 +67,7 @@ public class FileChooserTest extends JFrame implements ActionListener{
 
     public static void main(String[] args) {
         FileChooserTest hi = new FileChooserTest();
+        hi.setLocationRelativeTo(null);
         hi.setVisible(true);
     }
 
