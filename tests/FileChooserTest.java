@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Dimension;
+
 
 public class FileChooserTest extends JFrame implements ActionListener{
 
@@ -43,13 +43,14 @@ public class FileChooserTest extends JFrame implements ActionListener{
 
         container.setLayout(new FlowLayout());
 
-        container.add(jMenuBar);
+        this.setJMenuBar(jMenuBar);
         container.add(jPanel);
         jMenuBar.add(jMenu);
         jMenu.add(openFile);
         jMenu.add(saveFile);
 
         pack();
+        setLocationRelativeTo(null);
     }
 
     public void actionPerformed(ActionEvent e){
@@ -67,7 +68,6 @@ public class FileChooserTest extends JFrame implements ActionListener{
 
     public static void main(String[] args) {
         FileChooserTest hi = new FileChooserTest();
-        hi.setLocationRelativeTo(null);
         hi.setVisible(true);
     }
 
