@@ -23,6 +23,6 @@ public Class Book{
 
     public String toString(){
         //return title + " by " + author + "\nISBN: " + ISBN + "\n";
-        return title + ", " + author + ", " + ISBN + "\n";
+        return title + "," + author + "," + ISBN + "\n";
     }
 }
