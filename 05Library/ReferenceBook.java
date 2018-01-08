@@ -1,4 +1,4 @@
-public Class ReferenceBook extends LibraryBook{
+public class ReferenceBook extends LibraryBook{
 
     String collection;
 
@@ -7,7 +7,7 @@ public Class ReferenceBook extends LibraryBook{
         this. collection = collection;
     }
 
-    public string getCollection(){return collection;}
+    public String getCollection(){return collection;}
     public void setCollection(String collection){this.collection = collection;}
 
     public void checkout(String patron, String due){
@@ -19,11 +19,11 @@ public Class ReferenceBook extends LibraryBook{
     }
 
     public String circulationStatus(){
-        System.out.println("non-circulating reference book");
+        return "non-circulating reference book";
     }
 
     public String toString(){
-        return super.toString + "," + collection;
+        return super.toString() + "," + collection;
     }
 
 }

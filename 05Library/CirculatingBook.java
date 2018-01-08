@@ -1,10 +1,10 @@
-public CirclatingBook extends LibraryBook{
+public class CirculatingBook extends LibraryBook{
 
     String currentHolder;
     String dueDate;
     boolean checkedOut;
 
-    public CirclatingBook(String author, String title, String ISBN, String callNumber){
+    public CirculatingBook(String author, String title, String ISBN, String callNumber){
         super(author, title, ISBN, callNumber);
     }
 
@@ -14,7 +14,7 @@ public CirclatingBook extends LibraryBook{
     public void setDueDate(String date){dueDate = date;}
 
     public void checkout(String patron, String due){
-        checkedOut = true
+        checkedOut = true;
         currentHolder = patron;
         dueDate = due;
     }
@@ -27,7 +27,7 @@ public CirclatingBook extends LibraryBook{
 
     public String circulationStatus(){
         if (checkedOut){
-            return currentHolder + "\t" dueDate;
+            return currentHolder + "\t" + dueDate;
         }else{
             return "book available on shelves";
         }
@@ -35,7 +35,7 @@ public CirclatingBook extends LibraryBook{
 
     public String toString(){
         if (checkedOut){
-            super.toString() + "," + currentHolder + "," + dueDate;
+            return super.toString() + "," + currentHolder + "," + dueDate;
         }else{
             return super.toString();
         }
