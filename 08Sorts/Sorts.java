@@ -69,12 +69,12 @@ public class Sorts{
    }
 
    public static void main(String[] args) {
-       int[] intAry = new int[15];
+       int[] intAry = new int[3];
        for(int i = 0 ; i < intAry.length; i++){
            intAry[i] = (int)(Math.random() * 100);
        }
        System.out.println(Arrays.toString(intAry));
-       bubbleSort(intAry);
+       selectionSort(intAry);
        System.out.println(Arrays.toString(intAry));
    }
 }
